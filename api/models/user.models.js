@@ -1,27 +1,31 @@
-import mongoose from 'mongoose';
- 
-const useSchema = new mongoose.Schema({
+import mongoose from "mongoose";
+
+const useSchema = new mongoose.Schema(
+  {
     username: {
-        type: String,
-        require: true,
-        unique: true,
+      type: String,
+      require: true,
+      unique: true,
     },
     email: {
-        type: String,
-        require: true,
-        unique: true,
+      type: String,
+      require: true,
+      unique: true,
     },
     password: {
-        type: String,
-        require: true,
-       
-},
-
-},{
-    timestamps: true
-}
+      type: String,
+      require: true,
+    },
+    avatar: {
+      type: String,
+      default: "https://pixabay.com/vectors/blank-profile-data:image/png",
+    },
+  },
+  {
+    timestamps: true,
+  }
 );
 
-const User = mongoose.model('User', useSchema);
+const User = mongoose.model("User", useSchema);
 
 export default User;
